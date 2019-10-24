@@ -29,6 +29,11 @@ class MainActivity : AppCompatActivity() {
             users?.let { adapter.setUsers(it) }
         })
 
+       /* usersViewModel.allWebUsers.observe(this, Observer { users ->
+            users?.let {adapter.setUsers(it)}
+
+        })*/
+
         button.setOnClickListener{
             usersViewModel.insert(User(0,"Nikita","Ivanov"))
         }

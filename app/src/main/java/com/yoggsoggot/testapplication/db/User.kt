@@ -1,13 +1,13 @@
 package com.yoggsoggot.testapplication.db
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.yoggsoggot.testapplication.AbstractUser
 
 @Entity(tableName = "user_table")
-data class User(
+data class User (
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0,
-    val surname: String,
-    val name: String
-)
+    override var id:Int = 0,
+    override val surname: String,
+    override val name: String
+): AbstractUser()
