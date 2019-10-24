@@ -17,7 +17,7 @@ public abstract class UserRoomDatabase: RoomDatabase() {
         @Volatile
         private var INSTANCE: UserRoomDatabase? = null
 
-        fun getDatabase(context: Context, scope: CoroutineScope): UserRoomDatabase {
+        fun getDatabase(context: Context/*, scope: CoroutineScope*/): UserRoomDatabase {
             val tempInstance = INSTANCE
             if(tempInstance!=null){
                 return tempInstance
@@ -27,7 +27,7 @@ public abstract class UserRoomDatabase: RoomDatabase() {
                     context.applicationContext,
                     UserRoomDatabase::class.java,
                     "user_database"
-                    ).addCallback(UserDataBaseCallback(scope))
+                    )//.addCallback(UserDataBaseCallback(scope))
                     .build()
                 INSTANCE = instance
                 return instance
@@ -35,7 +35,9 @@ public abstract class UserRoomDatabase: RoomDatabase() {
         }
     }
 
-    private class UserDataBaseCallback(
+
+    //Fill DB with callback on open
+   /* private class UserDataBaseCallback(
         private val scope: CoroutineScope
     ):RoomDatabase.Callback(){
         override fun onOpen(db: SupportSQLiteDatabase) {
@@ -48,14 +50,14 @@ public abstract class UserRoomDatabase: RoomDatabase() {
 
 
         suspend fun populateDatabase(userDao: UserDao){
-            userDao.deleteAll()
-            val user1 = User("Ivanov", "Alexey")
+
+            val user1 = User(0,"Ivanov","Alexey")
             userDao.insert(user1)
-            val user2 = User("Poletkov", "Michail")
+            val user2 = User(0,"Poletkov", "Michail")
             userDao.insert(user2)
-            val user3 = User("Machmetov", "Erzhan")
+            val user3 = User(0,"Machmetov","Erzhan")
             userDao.insert(user3)
         }
-    }
+    }*/
 
 }
