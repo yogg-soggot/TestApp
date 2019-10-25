@@ -1,4 +1,4 @@
-package com.yoggsoggot.testapplication.ui
+package com.yoggsoggot.testapplication.ui.user
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.yoggsoggot.testapplication.R
 import com.yoggsoggot.testapplication.toList
+import com.yoggsoggot.testapplication.ui.UsersViewModel
 import kotlinx.android.synthetic.main.activity_user.*
 
 class UserActivity: AppCompatActivity() {
@@ -32,9 +33,11 @@ class UserActivity: AppCompatActivity() {
 
         usersViewModel = ViewModelProvider(this).get(UsersViewModel::class.java)
 
-        val singleUser = usersViewModel.loadSingle(userId)
 
-        singleUser.observe(this, Observer { user ->
+
+            usersViewModel.
+                loadSingle(userId).
+                observe(this, Observer { user ->
             user_name.text = user.name
             user_surname.text = user.surname
 

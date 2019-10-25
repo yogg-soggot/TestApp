@@ -1,4 +1,4 @@
-package com.yoggsoggot.testapplication.ui
+package com.yoggsoggot.testapplication.ui.main
 
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoggsoggot.testapplication.R
 import com.yoggsoggot.testapplication.db.User
 import com.yoggsoggot.testapplication.listToJson
+import com.yoggsoggot.testapplication.ui.UsersViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -35,9 +36,6 @@ class MainActivity : AppCompatActivity() {
             users?.let { adapter.setUsers(it) }
         })
 
-          /*usersViewModel.allWebUsers?.observe(this, Observer { users ->
-            users?.let { adapter.setUsers(it) }
-        })*/
 
        usersViewModel.allWebUsers.observe(this, Observer { users ->
 
@@ -49,9 +47,6 @@ class MainActivity : AppCompatActivity() {
         })
 
 
-        button.setOnClickListener{
-                usersViewModel.insert(User(0,"Nikita","Ivanov","sdfd", listToJson(listOf("sdsd","sdsd"))))
-            }
 
         }
 

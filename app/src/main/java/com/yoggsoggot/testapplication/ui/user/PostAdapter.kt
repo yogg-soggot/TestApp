@@ -1,4 +1,4 @@
-package com.yoggsoggot.testapplication.ui
+package com.yoggsoggot.testapplication.ui.user
 
 import android.content.Context
 import android.view.LayoutInflater

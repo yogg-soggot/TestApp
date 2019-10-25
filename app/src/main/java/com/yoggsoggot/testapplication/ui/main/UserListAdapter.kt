@@ -1,4 +1,4 @@
-package com.yoggsoggot.testapplication.ui
+package com.yoggsoggot.testapplication.ui.main
 
 import android.content.Context
 import android.content.Intent
@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.yoggsoggot.testapplication.R
 import com.yoggsoggot.testapplication.db.User
+import com.yoggsoggot.testapplication.ui.user.UserActivity
 
 class UserListAdapter internal constructor(
                 context: Context): RecyclerView.Adapter<UserListAdapter.UserViewHolder>(){
@@ -45,7 +46,7 @@ class UserListAdapter internal constructor(
 
         holder.itemView.setOnClickListener{
 
-            val intent = Intent(context,UserActivity::class.java)
+            val intent = Intent(context, UserActivity::class.java)
             intent.putExtra("userId",current.id)
             context.startActivity(intent)
 
