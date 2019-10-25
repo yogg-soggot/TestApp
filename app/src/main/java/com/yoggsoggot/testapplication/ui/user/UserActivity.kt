@@ -38,17 +38,19 @@ class UserActivity: AppCompatActivity() {
             usersViewModel.
                 loadSingle(userId).
                 observe(this, Observer { user ->
-            user_name.text = user.name
-            user_surname.text = user.surname
+            user_name.text = user?.name
+            user_surname.text = user?.surname
 
             Glide.with(this)
-                .load(user.imgurl)
+                .load(user?.imgurl)
                 .apply(RequestOptions.circleCropTransform())
                 .into(user_image_view)
 
-            val posts = toList(user.posts)
+            val posts = toList(user?.posts)
 
-            adapter.setPosts(posts!!)
+                    if (posts!= null) {
+                        adapter.setPosts(posts)
+                    }
         })
 
 
