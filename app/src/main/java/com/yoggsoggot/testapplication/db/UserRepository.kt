@@ -1,4 +1,4 @@
-package com.yoggsoggot.testapplication
+package com.yoggsoggot.testapplication.db
 
 import androidx.lifecycle.LiveData
 import com.yoggsoggot.testapplication.db.User
@@ -9,5 +9,13 @@ class UserRepository(private val userDao: UserDao) {
 
     suspend fun insert(user: User){
         userDao.insert(user)
+    }
+
+    suspend fun insertAll(users:List<User>){
+        userDao.insertAll(users)
+    }
+
+    suspend fun deleteAll(){
+        userDao.deleteAll()
     }
 }
