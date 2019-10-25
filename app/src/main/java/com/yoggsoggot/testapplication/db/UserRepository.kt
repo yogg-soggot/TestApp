@@ -1,11 +1,14 @@
 package com.yoggsoggot.testapplication.db
 
 import androidx.lifecycle.LiveData
-import com.yoggsoggot.testapplication.db.User
-import com.yoggsoggot.testapplication.db.UserDao
 
 class UserRepository(private val userDao: UserDao) {
     val allUsers: LiveData<List<User>> = userDao.getAllUsers()
+
+
+    fun loadSingle(id:Int): LiveData<User>{
+        return userDao.loadSingle(id)
+    }
 
     suspend fun insert(user: User){
         userDao.insert(user)

@@ -1,9 +1,11 @@
 package com.yoggsoggot.testapplication.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yoggsoggot.testapplication.R
 import com.yoggsoggot.testapplication.db.User
@@ -21,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         //val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         val adapter = UserListAdapter(this)
         recyclerview.adapter = adapter
-        recyclerview.layoutManager = LinearLayoutManager(this)
+        val orientation = resources.configuration.orientation
+        if(orientation == 1) {
+            recyclerview.layoutManager = LinearLayoutManager(this)
+        } else recyclerview.layoutManager = GridLayoutManager(this,2)
+
 
         usersViewModel = ViewModelProvider(this).get(UsersViewModel::class.java)
 
@@ -36,14 +42,18 @@ class MainActivity : AppCompatActivity() {
        usersViewModel.allWebUsers.observe(this, Observer { users ->
 
                 val usersList = users.map{ User(0, it.surname, it.name,it.imgurl, listToJson(it.posts))}
+                Log.w("net",usersList[1].imgurl)
                 usersViewModel.deleteAll()
                 usersViewModel.insertAll(usersList)
 
         })
 
+
         button.setOnClickListener{
-            usersViewModel.insert(User(0,"Nikita","Ivanov","sds", listToJson(listOf("sdsd","sdsd"))))
+                usersViewModel.insert(User(0,"Nikita","Ivanov","sdfd", listToJson(listOf("sdsd","sdsd"))))
+            }
+
         }
 
     }
-}
+

@@ -14,10 +14,11 @@ import kotlinx.coroutines.launch
 class UsersViewModel(application: Application): AndroidViewModel(application){
 
     private val repository: UserRepository
-    val allUsers :LiveData<List<User>>
+    val allUsers: LiveData<List<User>>
+
 
     private val webRepository = UserWebRepository()
-    var allWebUsers: LiveData<List<UserDTO>>
+    val allWebUsers: LiveData<List<UserDTO>>
 
 
 
@@ -30,9 +31,11 @@ class UsersViewModel(application: Application): AndroidViewModel(application){
 
     }
 
-    fun refresh(){
-        allWebUsers = webRepository.getAllUsers()
+
+    fun loadSingle(id:Int): LiveData<User>{
+        return repository.loadSingle(id)
     }
+
 
     fun insert(user: User) = viewModelScope.launch {
         repository.insert(user)
