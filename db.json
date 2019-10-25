@@ -4,7 +4,7 @@
      "id":1,
       "name":"Алексей",
       "surname":"Арсентьев",
-      "imgurl":"yandex.ru",
+      "imgurl":"https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg",
       "posts" :[
          "Привет, я Алексей",
          "Тут я пишу немного о себе",
@@ -15,7 +15,7 @@
      "id":2,
      "name":"Ольга",
      "surname":"Кузнецова",
-      "imgurl":"yandex.ru",
+      "imgurl":"https://www.pngarts.com/files/3/Cool-Avatar-Transparent-Images.png",
        "posts" :[
          "Привет, я Ольга",
          "Сейчас я расскажу анекдот",
@@ -26,7 +26,7 @@
      "id":3,
      "name":"Михаил",
      "surname":"Новотворцев",
-     "imgurl":"yandex.ru",
+     "imgurl":"http://www.lte-esafety.co.uk/wp-content/uploads/2015/06/avatar.png",
        "posts" :[
          "А там армяне в нарды играют",
          "Неожиданно, правда?",
