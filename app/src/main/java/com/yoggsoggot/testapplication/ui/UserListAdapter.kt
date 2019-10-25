@@ -6,14 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.yoggsoggot.testapplication.AbstractUser
 import com.yoggsoggot.testapplication.R
 import com.yoggsoggot.testapplication.db.User
 
 class UserListAdapter internal constructor(
                 context: Context): RecyclerView.Adapter<UserListAdapter.UserViewHolder>(){
     private val inflater: LayoutInflater = LayoutInflater.from(context)
-    private var users = emptyList<AbstractUser>()
+    private var users = emptyList<User>()
 
     inner class UserViewHolder(itemView: View):RecyclerView.ViewHolder(itemView){
         val nameItemView: TextView = itemView.findViewById(R.id.name)
@@ -31,7 +30,7 @@ class UserListAdapter internal constructor(
         holder.surnameItemView.text = current.surname
     }
 
-    internal fun setUsers(users: List<AbstractUser>){
+    internal fun setUsers(users: List<User>){
         this.users = users
         notifyDataSetChanged()
     }

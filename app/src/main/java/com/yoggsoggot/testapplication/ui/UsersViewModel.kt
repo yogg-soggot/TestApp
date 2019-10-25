@@ -1,15 +1,14 @@
 package com.yoggsoggot.testapplication.ui
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.*
-import com.yoggsoggot.testapplication.AbstractUser
-import com.yoggsoggot.testapplication.db.UserRepository
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import com.yoggsoggot.testapplication.db.User
+import com.yoggsoggot.testapplication.db.UserRepository
 import com.yoggsoggot.testapplication.db.UserRoomDatabase
 import com.yoggsoggot.testapplication.networking.UserDTO
 import com.yoggsoggot.testapplication.networking.UserWebRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UsersViewModel(application: Application): AndroidViewModel(application){
